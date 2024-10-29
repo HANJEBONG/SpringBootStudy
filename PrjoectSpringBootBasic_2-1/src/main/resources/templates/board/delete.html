@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <style type="text/css">
+ .container{
+ 	margin-top: 30px;
+ }
+ .row{
+ 	margin: 0px auto;
+ 	width: 960px;
+ }
+ </style>
+</head>
+<body>
+	<div class="container">
+		<form method="get" action="/board/delete_ok">
+		<div class="row">
+			<h1>삭제하기</h1>
+			<table class="table">
+				<tr>
+					<th width="20%">
+						비밀번호:
+					</th>
+					
+					<td width="80%">
+						<input type="password" size="20" name="pwd">
+						<input type=hidden name=no th:value="${no}">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-center">
+						<button>삭제</button>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		</form>
+	</div>
+</body>
+</html>

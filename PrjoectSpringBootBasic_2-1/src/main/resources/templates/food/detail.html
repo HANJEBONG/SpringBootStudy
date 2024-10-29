@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <style type="text/css">
+ .container{
+ 	margin-top: 30px;
+ }
+ .row{
+ 	margin: 0px auto;
+ 	width: 960px;
+ }
+ </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<table class="table">
+				<tr>
+					<td class="text-center" width="30%" rowspan="7">
+						<img th:src="'http://menupan.com'+${vo.poster}" style="width:100%">
+					</td>
+					<td colspan="2">
+						 <h3 th:text="${vo.name}">&nbsp;<span style="color:orange;" th:text="${vo.score}"></span></h3>
+					</td>
+				</tr>
+							   <tr>
+                                <td width=15% class="text-center">주소</td>
+                                <td width="55%" th:text="${vo.address}"></td>
+                              </tr>
+                              <tr>
+                                <td width=15% class="text-center">전화</td>
+                                <td width="55%" th:text="${vo.phone}"></td>
+                              </tr>
+                              <tr>
+                                <td width=15% class="text-center">음식종류</td>
+                                <td width="55%" th:text="${vo.theme}"></td>
+                              </tr>
+                              <tr>
+                                <td width=15% class="text-center">주차</td>
+                                <td width="55%" th:text="${vo.parking}">$</td>
+                              </tr>
+                              <tr>
+                                <td width=15% class="text-center">영업시간</td>
+                                <td width="55%" th:text="${vo.time}"></td>
+                              </tr>
+                 
+			</table>
+		</div>
+	</div>
+</body>
+</html>

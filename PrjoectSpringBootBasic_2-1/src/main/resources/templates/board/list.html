@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <style type="text/css">
+ .container{
+ 	margin-top: 30px;
+ }
+ .row{
+ 	margin: 0px auto;
+ 	width: 960px;
+ }
+ </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div>
+				<a href="/board/insert" class="btn btn-sm btn-info">새 글</a>
+			</div>
+		</div>
+		<div class="row">
+			<table class="table">
+				<tr>
+					<th width="10%" class="text-center">
+					번호
+					</th>
+					<th width="40%" class="text-center">
+					제목
+					</th>
+					<th width="20%" class="text-center">
+					작성자
+					</th>
+					<th width="15%" class="text-center">
+					작성일
+					</th>
+					<th width="15%" class="text-center">
+					조회수
+					</th>
+				</tr>
+				<tr th:each="vo:${list}">
+					<td width="10%" th:text="${vo.no}" class="text-center">
+					
+					</td>
+					<td width="40%" >
+					<a th:href="@{/board/detail(no=${vo.no})}" th:text="${vo.subject}"></a>
+					</td>
+					<td width="20%" th:text="${vo.name}" class="text-center">
+					
+					</td>
+					<td width="15%" th:text="${vo.regdate}" class="text-center">
+					
+					</td>
+					<td width="15%" th:text="${vo.hit}" class="text-center">
+					</td>
+				</tr>
+			</table>
+		  </div>
+		  <div style="height: 10px"></div>
+		  <div class="row">
+		  <!-- 
+		  	1. for => th:each="변수명:${collection}"
+		  				=> 순차적 -> #numbers.sequence(1,10)
+		  				th:if="조건문" => EL
+		  	2. 태그 사이에 문자 출력
+		  		th:text / th:html
+		  	3. th:href="@(URL(변수 = 값,변수 = 값)}"
+		  	=> JSP => 속도가 느리다
+		  		Spring-Boot : Vue => 삼성 , 한화
+		  		Spring-Boot : React => 현대 , SK , 은행권 , 공기업
+		  		====================== 작은 단위의 프로그램 : MSA
+		   -->
+		  	<div class="text-center">
+		  		<ul class="pagination">
+		  			<li th:if="${startPage>1}"><a th:href="@{/(page=${startPage-1})}">&lt;</a></li>
+		  			<li th:each="i:${#numbers.sequence(startPage,endPage)}" th:class="${curpage==i?'active':''}"><a th:href="@{/board/list(page=${i})}" th:text="${i}"></a></li>
+		  			<li th:if="${endPage<totalpage}"><a th:href="@{/(page=${endPage+1})}">&gt;</a></li>
+		  		</ul>
+		  	</div>
+		  </div>
+		</div>
+</body>
+</html>
