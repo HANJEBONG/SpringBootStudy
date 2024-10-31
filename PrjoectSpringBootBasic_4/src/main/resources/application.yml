@@ -8,7 +8,7 @@ spring:
     url: jdbc:mysql://localhost:3306/mydb?autoReconnection=true
     username: root
     password: happy
-    driver-class-name: om.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #mybatis
 #jpa
   jpa:
