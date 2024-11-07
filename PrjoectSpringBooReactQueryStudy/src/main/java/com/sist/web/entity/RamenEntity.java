@@ -1,5 +1,6 @@
 package com.sist.web.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -30,7 +31,8 @@ poster varchar(
 public class RamenEntity {
 	@Id
 	private String code;
+
 	private String name,cate1,cate2,nutrition,calcium,onetime,weight,company,poster;
-	private int kcal,transacid,sodium;
+	private int kcal,transacid,sodium,hit;
 	private double protein,fat,carbohydrate,sugar,colas,fatacid;
 }

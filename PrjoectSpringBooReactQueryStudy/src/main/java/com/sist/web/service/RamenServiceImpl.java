@@ -31,4 +31,17 @@ public class RamenServiceImpl implements RamenService{
 		// TODO Auto-generated method stub
 		return (int)mDao.count();
 	}
+
+	@Override
+	public RamenEntity findBycode(String code) {
+		// TODO Auto-generated method stub
+		return mDao.findBycode(code);
+	}
+
+	@Override
+	public void save(RamenEntity vo) {
+		// TODO Auto-generated method stub
+		mDao.save(vo);
+		
+	}
 }

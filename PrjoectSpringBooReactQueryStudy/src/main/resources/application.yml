@@ -20,6 +20,8 @@ spring:
           show_sql: true
           format_sql: true
           user_sql_comment: true
+  elasticsearch:
+    uris: localhost:9200		    
 #log file
 logging:
   level: 

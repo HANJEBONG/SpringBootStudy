@@ -27,7 +27,7 @@ public class RamenRestController {
 	public ResponseEntity<Map> ramenList(@PathVariable("page")int page){
 		Map map=new HashMap();
 		try {
-			int rowSize=12;
+			int rowSize=6;
 			int start=(rowSize*page)-rowSize;
 			
 			List<RamenVO> list=mService.ramenListData(start);
@@ -50,5 +50,19 @@ public class RamenRestController {
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<>(map,HttpStatus.OK);
+	}
+	@GetMapping("ramen/detail/{code}")
+	public ResponseEntity<RamenEntity> ramenDetail(@PathVariable("code")String code){
+		RamenEntity vo=new RamenEntity();
+		try {
+			 vo=mService.findBycode(code);
+			 vo.setHit(vo.getHit()+1);
+			 mService.save(vo);
+			 vo=mService.findBycode(code);
+		}catch(Exception ex) {
+			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return new ResponseEntity<>(vo ,HttpStatus.OK);
 	}
 }

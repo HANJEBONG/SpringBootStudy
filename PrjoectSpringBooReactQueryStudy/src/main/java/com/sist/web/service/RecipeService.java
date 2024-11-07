@@ -4,6 +4,8 @@ import com.sist.web.dao.*;
 import com.sist.web.entity.*;
 import java.util.*;
 
+import org.springframework.data.repository.query.Param;
+
 
 
 public interface RecipeService {
@@ -13,4 +15,7 @@ public interface RecipeService {
 	public List<RecipeVO> ramenRecipeTop9();
 	public RecipeEntity findByNo(int no);
 	public void save(RecipeEntity vo);
+	public List<RecipeVO> recipeList(int start);
+	public int count();
+	
 }

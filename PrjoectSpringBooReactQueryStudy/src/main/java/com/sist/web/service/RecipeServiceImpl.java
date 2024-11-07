@@ -54,6 +54,18 @@ public class RecipeServiceImpl implements RecipeService{
 		
 	}
 
+	@Override
+	public List<RecipeVO> recipeList(int start) {
+		// TODO Auto-generated method stub
+		return rDao.recipeList(start);
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return (int)rDao.count();
+	}
+
 
 	
 

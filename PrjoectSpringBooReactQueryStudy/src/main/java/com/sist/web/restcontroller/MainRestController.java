@@ -40,6 +40,7 @@ public class MainRestController {
 			List<RamenVO> rList=mService.remanTop5();
 			List<RecipeVO> rTList=rService.ramenRecipeTop9();
 			List<RecipeVO> gTList=rService.gitaRecipeTop9();
+			map.put("fList", fList);
 			map.put("rList", rList);
 			map.put("oneData", fList.get(0));
 			map.put("twoData", twoData);

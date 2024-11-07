@@ -23,5 +23,9 @@ public interface RecipeDAO extends JpaRepository<RecipeEntity, Integer>{
 			+ "LIMIT 0,9",nativeQuery = true)
 	public List<RecipeVO> gitaRecipeTop9();
 	
+	@Query(value = "SELECT  no,title,explane,thumb,subbadge,hit,ingerdient FROM ramen "
+			+ "LIMIT :start,6",nativeQuery = true)
+	public List<RecipeVO> recipeList(@Param("start")int start);
+	
 	public RecipeEntity findByNo(int no);
 }
