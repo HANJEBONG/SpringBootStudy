@@ -15,8 +15,10 @@ import com.sist.web.service.*;
 @CrossOrigin(origins = "*")
 public class RecipeRestController {
 	private RecipeService rService;
-	public RecipeRestController(RecipeService service) {
+	
+	public RecipeRestController(RecipeService service,CommentService cService) {
 		this.rService=service;
+		
 	}
 	
 	@GetMapping("recipe/list/{curpage}")
